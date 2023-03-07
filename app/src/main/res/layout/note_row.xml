@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data
+        >
+        <variable
+            name="note"
+            type="com.enesay.notepad.model.Notes" />
+    </data>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="vertical"
+    android:padding="8dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/txt_toDoName"
+        app:layout_constraintTop_toTopOf="@+id/txt_toDoName">
+
+        <TextView
+            android:id="@+id/txt_toDoName"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="41dp"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="117dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:text="@{note.duty}"
+            android:layout_margin="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/checked_done"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </TextView>
+
+        <CheckBox
+            android:id="@+id/checked_done"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:checked="@{note.done}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt_toDoName"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </CheckBox>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
+</layout>
