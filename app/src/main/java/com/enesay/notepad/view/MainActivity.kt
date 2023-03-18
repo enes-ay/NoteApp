@@ -18,26 +18,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar))
         viewmodel=ViewModelProvider(this).get(NoteListViewmodel::class.java)
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.top_bar, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.deleteNotes ->{
-                Toast.makeText(applicationContext,"All notes deleted",Toast.LENGTH_SHORT).show()
-                viewmodel.deleteAllNotes()
-            }
-
-        }
-        return super.onOptionsItemSelected(item)
-
-    }
 }

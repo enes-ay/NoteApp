@@ -4,14 +4,13 @@ import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Note
+import android.view.*
+import android.widget.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
+import androidx.core.view.MenuProvider
+import androidx.core.view.get
 import androidx.fragment.app.ListFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -36,6 +35,9 @@ class NoteListFragment : Fragment(R.layout.fragment_note_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val toolbar = view.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar_home)
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
         binding = FragmentNoteListBinding.bind(view)
         viewmodel = ViewModelProvider(requireActivity()).get(NoteListViewmodel::class.java)
 
@@ -51,6 +53,15 @@ class NoteListFragment : Fragment(R.layout.fragment_note_list) {
         binding.fabAddNote.setOnClickListener {
             createDialog(requireContext())
         }
+
+        val toolbarIcon = view.findViewById<ImageView>(R.id.toolbar_deleteAll)
+
+        toolbarIcon.setOnClickListener {
+            viewmodel.deleteAllNotes()
+            Toast.makeText(context, "All notes deleted", Toast.LENGTH_SHORT).show()
+
+        }
+
 
     }
 
@@ -77,7 +88,7 @@ class NoteListFragment : Fragment(R.layout.fragment_note_list) {
             if (text.isEmpty()) {
                 Toast.makeText(context, "please type your note", Toast.LENGTH_SHORT).show()
             } else {
-                viewmodel.insertNote(Notes("Sample Notes", textEdt.text.toString(), false))
+                viewmodel.insertNote(textEdt.text.toString())
                 Builder.dismiss()
             }
         }
@@ -85,5 +96,6 @@ class NoteListFragment : Fragment(R.layout.fragment_note_list) {
             Builder.dismiss()
         }
     }
+
 
 }

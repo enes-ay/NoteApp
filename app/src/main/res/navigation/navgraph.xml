@@ -9,5 +9,23 @@
         android:id="@+id/noteListFragment"
         android:name="com.enesay.notepad.view.NoteListFragment"
         android:label="fragment_note_list"
-        tools:layout="@layout/fragment_note_list" />
+        tools:layout="@layout/fragment_note_list" >
+        <action
+            android:id="@+id/action_noteListFragment_to_noteDetailFragment"
+            app:destination="@id/noteDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteDetailFragment"
+        android:name="com.enesay.notepad.view.NoteDetailFragment"
+        android:label="fragment_note_detail"
+        tools:layout="@layout/fragment_note_detail" >
+        <action
+            android:id="@+id/action_noteDetailFragment_to_noteListFragment"
+            app:destination="@id/noteListFragment" />
+
+        <argument
+            android:name="note"
+            app:argType="com.enesay.notepad.model.Notes"
+            app:nullable="true" />
+    </fragment>
 </navigation>

@@ -23,8 +23,8 @@ class NoteListViewmodel @Inject constructor(
         noteList = repository.getNotes()
     }
 
-    fun insertNote(note: Notes) = viewModelScope.launch {
-        repository.insertNote(note)
+    fun insertNote(duty:String) = viewModelScope.launch {
+        repository.insertNote(duty)
 
     }
 

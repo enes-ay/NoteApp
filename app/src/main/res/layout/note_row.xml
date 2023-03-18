@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data
         >
@@ -9,9 +11,6 @@
     </data>
 
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:orientation="vertical"
@@ -25,17 +24,31 @@
         app:layout_constraintTop_toTopOf="@+id/txt_toDoName">
 
         <TextView
+            android:id="@+id/txtNoteId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(note.noteId)}"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <TextView
             android:id="@+id/txt_toDoName"
             android:layout_width="300dp"
             android:layout_height="70dp"
+            android:layout_margin="5dp"
             android:layout_marginStart="41dp"
-            android:gravity="center_vertical"
             android:layout_marginEnd="117dp"
             android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:text="@{note.duty}"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:text="@{note.duty}"
-            android:layout_margin="5dp"
+            android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/checked_done"
             app:layout_constraintStart_toStartOf="parent">

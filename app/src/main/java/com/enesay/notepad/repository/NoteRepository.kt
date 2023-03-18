@@ -15,14 +15,22 @@ class NoteRepository @Inject constructor(
      fun getNotes():LiveData<List<Notes>>{
          return dao.getNotes()
     }
-    suspend fun insertNote(note: Notes){
+    fun getNote(noteId: Int):LiveData<Notes>{
+        return dao.getNote(noteId)
+    }
+    suspend fun insertNote(duty: String){
+        val note=Notes(0,"samples",duty,false)
         dao.insertNote(note)
     }
-    suspend fun markDone(isdDone:Boolean,noteId:Int){
-        dao.changeDone(isdDone,noteId)
+    suspend fun markDone(isDone:Boolean,noteId:Int){
+        dao.changeDone(isDone,noteId)
 
     }
     suspend fun deleteAllNotes(){
         dao.deleteAllNotes()
+    }
+    suspend fun updateNote(noteId:Int,duty:String){
+        var note=Notes(noteId,"sample",duty,false)
+        dao.updateNote(note)
     }
 }
