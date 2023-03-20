@@ -1,26 +1,16 @@
 package com.enesay.notepad.view
 
 import android.os.Bundle
-import android.text.Editable
 import android.view.*
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
-import androidx.navigation.NavArgs
 import androidx.navigation.Navigation
 import com.enesay.notepad.R
 import com.enesay.notepad.databinding.FragmentNoteDetailBinding
-import com.enesay.notepad.databinding.FragmentNoteListBinding
-import com.enesay.notepad.model.Notes
 import com.enesay.notepad.util.go
 import com.enesay.notepad.viewmodel.NoteDetailViewmodel
-import com.enesay.notepad.viewmodel.NoteListViewmodel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

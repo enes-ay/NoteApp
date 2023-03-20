@@ -2,6 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
+
+    <item
+        app:showAsAction="always|collapseActionView"
+        android:id="@+id/searchNotes"
+        android:icon="@drawable/btn_search"
+        android:title="Search in notes"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+
+        >
+    </item>
     <item
         app:showAsAction="always"
         android:id="@+id/deleteNotes"

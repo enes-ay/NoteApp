@@ -22,4 +22,7 @@ interface NoteDao {
 
     @Query("update Notes set isDone=:isDone where noteId=:noteId ")
     suspend fun changeDone(isDone:Boolean,noteId:Int)
+
+    @Query("select * from Notes where duty like '%' || :searchText || '%'")
+    fun searchTodo(searchText:String) :LiveData<List<Notes>>
 }

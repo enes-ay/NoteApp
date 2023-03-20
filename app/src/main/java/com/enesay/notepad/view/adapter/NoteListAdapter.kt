@@ -1,40 +1,19 @@
-package com.enesay.notepad.adapter
+package com.enesay.notepad.view.adapter
 
-import android.app.Application
-import android.provider.ContactsContract.CommonDataKinds.Note
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStore
-import androidx.lifecycle.ViewModelStoreOwner
-import androidx.lifecycle.viewmodel.ViewModelInitializer
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.Navigation
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.enesay.notepad.R
-import com.enesay.notepad.databinding.FragmentNoteListBinding
 import com.enesay.notepad.databinding.NoteRowBinding
 import com.enesay.notepad.model.Notes
 import com.enesay.notepad.util.go
-import com.enesay.notepad.view.NoteListFragment
 import com.enesay.notepad.view.NoteListFragmentDirections
-import com.enesay.notepad.viewmodel.NoteListViewmodel
-import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.currentCoroutineContext
-import org.w3c.dom.Text
-import javax.inject.Inject
-import kotlin.coroutines.coroutineContext
+import com.enesay.notepad.view.NoteListViewmodel
 
 class NoteListAdapter(var viewmodel: NoteListViewmodel) : RecyclerView.Adapter<NoteListAdapter.NoteViewHolder>(){
 
@@ -69,10 +48,6 @@ class NoteListAdapter(var viewmodel: NoteListViewmodel) : RecyclerView.Adapter<N
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        for (i in noteList){
-            println("id kontrol"+i.noteId)
-
-        }
         val note=noteList.get(position)
 
         holder.binding.note=note

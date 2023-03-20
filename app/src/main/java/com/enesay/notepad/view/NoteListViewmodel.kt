@@ -1,4 +1,4 @@
-package com.enesay.notepad.viewmodel
+package com.enesay.notepad.view
 
 import android.provider.ContactsContract.CommonDataKinds.Note
 import android.widget.Toast
@@ -35,6 +35,9 @@ class NoteListViewmodel @Inject constructor(
     fun markDone(isDone: Boolean, noteId: Int) = viewModelScope.launch {
         repository.markDone(isDone, noteId)
         println("markDone çalıştı")
+    }
+    fun searhNote(text:String)=viewModelScope.launch{
+       noteList= repository.searchNotes(text)
     }
 
 }

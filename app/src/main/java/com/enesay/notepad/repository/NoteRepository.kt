@@ -33,4 +33,8 @@ class NoteRepository @Inject constructor(
         var note=Notes(noteId,"sample",duty,false)
         dao.updateNote(note)
     }
+
+    fun searchNotes(text:String):LiveData<List<Notes>>{
+      return  dao.searchTodo(text)
+    }
 }
